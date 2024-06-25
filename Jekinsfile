@@ -1,0 +1,13 @@
+pipeline {
+    agent any 
+    parameters {
+        choice(name: 'Environment',choices:['Dev' , 'Prod ' , 'QA' ,'UAT'],description: 'Select your environment')
+    }
+    stages {
+        stage ("Deployment") {
+            steps {
+                echo "Deploying to ${params.Environment}"
+            }
+        }
+    }
+}
